@@ -4,6 +4,10 @@
   margin-right: 5px;
   padding: 10px;
 }
+.product-details {
+  text-align: left;
+  margin-left: 40px;
+}
 .product-name {
   color: blue;
   font-weight: 500;
