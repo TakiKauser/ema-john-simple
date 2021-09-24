@@ -1,0 +1,19 @@
+.logo {
+  height: 100px;
+  /* background-color: aqua; */
+}
+.header nav {
+  background-color: black;
+  line-height: 40px;
+}
+.header nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  padding: 5px;
+  font-size: 20px;
+}
+.header nav a:hover {
+  color: black;
+  background-color: white;
+}
