@@ -7,11 +7,15 @@ import './Shop.css';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
+    const [requiredProducts, setRequiredProducts] = useState([]);
 
     useEffect(() => {
         fetch('./products.JSON')
             .then(response => response.json())
-            .then(jsonData => setProducts(jsonData))
+            .then(jsonData => {
+                setProducts(jsonData);
+                setRequiredProducts(jsonData);
+            })
     }, []);
 
     useEffect(() => {
@@ -22,7 +26,7 @@ const Shop = () => {
                 // console.log(key, savedCart[key]);
                 const addedProduct = products.find(product => product.key === key);
                 // console.log(key, addedProduct);
-                if(addedProduct){
+                if (addedProduct) {
                     const quantity = savedCart[key];
                     addedProduct.quantity = quantity;
                     // console.log(addedProduct);
@@ -39,22 +43,35 @@ const Shop = () => {
         setCart(newCart);
         addToDb(product.key);
     }
+    const handlesearch = event => {
+        const searchText = event.target.value;
+        const matchedProducts = products.filter(product => product.name.toLowerCase().includes(searchText.toLowerCase()));
+        setRequiredProducts(matchedProducts);
+        // console.log(matchedProducts);
+    }
     return (
-        <div className="shop-container">
-            <div className="product-container">
-                <h3>Products: {products.length}</h3>
-                {
-                    products.map(product => <Product
-                        key={product.key}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                    ></Product>)
-                }
+        <>
+            <div className="search-container">
+                <input type="text"
+                    placeholder="Search Product"
+                    onChange={handlesearch} />
             </div>
-            <div className="cart-container">
-                <Cart cart={cart}></Cart>
+            <div className="shop-container">
+                <div className="product-container">
+                    <h3>Products: {products.length}</h3>
+                    {
+                        requiredProducts.map(product => <Product
+                            key={product.key}
+                            product={product}
+                            handleAddToCart={handleAddToCart}
+                        ></Product>)
+                    }
+                </div>
+                <div className="cart-container">
+                    <Cart cart={cart}></Cart>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 
