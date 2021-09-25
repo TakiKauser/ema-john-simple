@@ -12,6 +12,12 @@
   color: blue;
   font-weight: 500;
 }
+.icon-color-gold{
+  color: gold;
+}
+.icon-color-silver{
+  color: silver;
+}
 .regular-btn {
   background-color: goldenrod;
   width: 150px;
