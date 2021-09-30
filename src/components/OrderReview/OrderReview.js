@@ -7,12 +7,20 @@ import './OrderReview.css'
 
 const OrderReview = () => {
     const [products] = useProducts();
-    const [cart] = useCart(products);
+    const [cart, setCart] = useCart(products);
+    const handleRemove = key => {
+        const newCart = cart.filter(product => product.key !== key);
+        setCart(newCart);
+    }
     return (
         <div className="shop-container">
             <div className="product-container">
                 {
-                    cart.map(product => <ReviewItem product={product} />)
+                    cart.map(product => <ReviewItem
+                        key={product.key}
+                        product={product}
+                        handleRemove={handleRemove}
+                    />)
                 }
             </div>
             <div className="cart-container">
