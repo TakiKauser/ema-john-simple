@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import './LogIn.css';
+import './Login.css';
 
-const LogIn = () => {
+const Login = () => {
     const { signInUsingGoogle } = useAuth();
     const location = useLocation();
     const history = useHistory();
@@ -14,7 +14,7 @@ const LogIn = () => {
 
     const handleGoogleLogIn = () => {
         signInUsingGoogle()
-            .then((result) => {
+            .then(result => {
                 history.push(redirect_uri);
             })
     }
@@ -37,4 +37,4 @@ const LogIn = () => {
     );
 };
 
-export default LogIn;
+export default Login;

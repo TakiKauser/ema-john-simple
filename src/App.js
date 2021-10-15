@@ -5,7 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Inventory from './components/Inventory/Inventory';
-import LogIn from './components/Login/LogIn';
+import Login from './components/Login/Login';
 import NotFound from './components/NotFound/NotFound';
 import OrderReview from './components/OrderReview/OrderReview';
 import PlaceOrder from './components/PlaceOrder/PlaceOrder';
@@ -41,7 +41,7 @@ function App() {
               <PlaceOrder />
             </PrivateRoute>
             <Route path="/login">
-              <LogIn />
+              <Login />
             </Route>
             <Route path="/register">
               <Register />

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
-import { clearTheCart, removeFromDb } from '../../utilities/fakedb';
+import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './OrderReview.css'
@@ -19,12 +18,13 @@ const OrderReview = () => {
         setCart(newCart);
         removeFromDb(key);
     }
-
-    const handlePlaceOrder = () => {
-        /* 
-        setCart([]);
-        clearTheCart();
-         */
+    /* 
+        const handlePlaceOrder = () => {
+            setCart([]);
+            clearTheCart();            
+        }
+    */
+    const handleProcessShipment = () => {
         history.push("/shipping");
     }
 
@@ -41,9 +41,8 @@ const OrderReview = () => {
             </div>
             <div className="cart-container">
                 <Cart cart={cart}>
-                    <Link>
-                        <button onClick={handlePlaceOrder} className="regular-btn">Process Shipment</button>
-                    </Link>
+                    {/* <button onClick={handlePlaceOrder} className="regular-btn">Place Order</button> */}
+                    <button onClick={handleProcessShipment} className="regular-btn">Process Shipment</button>
                 </Cart>
             </div>
         </div>
