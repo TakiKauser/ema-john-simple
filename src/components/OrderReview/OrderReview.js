@@ -1,15 +1,15 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import useCart from '../../hooks/useCart';
-import useProducts from '../../hooks/useProducts';
+// import useProducts from '../../hooks/useProducts';
 import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
 import './OrderReview.css'
 
 const OrderReview = () => {
-    const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
+    // const [products] = useProducts();
+    const [cart, setCart] = useCart();
 
     const history = useHistory();
 

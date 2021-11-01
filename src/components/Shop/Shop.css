@@ -1,4 +1,4 @@
-.search-container{
+.search-container {
   background-color: rgba(0, 0, 0, 0.849);
   line-height: 40px;
   padding: 10px;
@@ -16,4 +16,15 @@
   margin-right: 5px;
   margin-left: 150px;
   /* background-color: grey; */
+}
+
+.pagination {
+  margin: 30px auto;
+}
+.pagination button {
+  margin-right: 15px;
+  padding: 3px 15px;
+}
+.pagination .selected {
+  background-color: darkorange;
 }
